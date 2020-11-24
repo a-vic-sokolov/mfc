@@ -1,0 +1,108 @@
+@import 'neon';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+
+@font-face {
+  font-family:'Neoneon';
+  src: url('/font/Neoneon.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family:'AA-Neon';
+  src: url('/font/AA-Neon.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+.menu_main{
+  background: #CC8362;
+  a{
+    color: white !important;
+  }
+}
+body{
+font-size: 20px;
+  color:#7B9093;
+}
+.btn{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+
+  width: 12em;
+  height: 4em;
+  margin-top: 2em;
+  text-transform: uppercase;
+
+}
+.btn-color{
+  background: #CC8362!important;
+  color: white !important;
+}
+.MuiButtonBase-root{
+  z-index: 10;
+}
+.img_class{
+
+}
+img{
+  position: absolute;
+  width: 100%;
+z-index: 0;
+
+
+}
+.logo_up{
+  font: 2em Neoneon;
+  margin-right: 1em;
+
+}
+.logo_down{
+  font: 1em "Roboto Light";
+
+}
+a{
+  line-height: 1;
+}
+.slider_main_paper {
+  position: relative;
+
+  height: 91vh;
+
+
+  h2{
+    font: 4em Neoneon;
+    font-weight: 600;
+    margin-top: 5em;
+
+  }
+}
+.img_class{
+  background-color: rgba(204, 131, 98,0.8);
+  position: relative;
+}
+.slider_blur{
+  height: 91vh;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(123, 144, 147,0.6);
+
+}
+.slider_main_paper{
+
+}
+.slider_main{
+
+
+}
+.slider_blur{
+
+
+
+
+}
+
+h2{
+  color: white;
+}

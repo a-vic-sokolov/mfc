@@ -1,65 +1,90 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+import {useEffect} from "react"
+import Carousel from 'react-material-ui-carousel'
+import {Paper} from '@material-ui/core'
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import {Navs} from "./components/Navs";
+
 
 export default function Home() {
+
+    useEffect(()=>{
+
+
+    }, [])
+    let items = [
+        {
+            name: "Твори и Создавай",
+            description: "Probably the most random thing you have ever seen!",
+            buttonNameLeft: "Handmade",
+            buttonNameRight: "Творчество",
+            img: "/2.jpg"
+        },
+        {
+            name: "Учись и познавай",
+            description: "Hello World!",
+            buttonNameLeft: "Social",
+            buttonNameRight: "Профориентация",
+            img: "/1.jpg"
+        },
+        {
+            name: "Предлагай и действуй",
+            description: "Hello World!",
+            buttonNameLeft: "Молодежная политика",
+            buttonNameRight: "Волонтерство",
+            img: "/3.jpg"
+        }
+    ]
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div >
+        <Navs/>
+        <Carousel
+            className={'slider_main'}
+            autoPlay={false}
+            navButtonsAlwaysVisible={true}
+            animation={'fade'}
+            indicators={false}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+
+            {
+                items.map( (item, i) => <Item key={i} item={item} img={item.img} /> )
+            }
+        </Carousel>
+
+
+
     </div>
   )
+}
+function Item(props)
+{
+    return (
+        <Paper className={'slider_main_paper'}>
+            <div className="img_class">
+            <img src={`${props.img}`} alt=""/>
+
+            <div className="slider_blur container-fluid d-flex align-items-center">
+                <div className="col-12 align-items-center">
+                <div className="row align-middle">
+                    <div className="col-12 d-flex justify-content-center">
+                        <h2 className={'orange'}>{props.item.name}</h2>
+                    </div>
+                </div>
+                <div className="row align-middle">
+                    <div className="col-6 d-flex justify-content-end">
+                        <button className={'btn btn-color large '}><i className="fa fa-address-book"
+                                                                      aria-hidden="true"></i>{props.item.buttonNameLeft}</button>
+                    </div>
+                    <div className="col-6 d-flex justify-content-start">
+                        <button className={'btn btn-color large'}>{props.item.buttonNameRight}</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </Paper>
+    )
 }
